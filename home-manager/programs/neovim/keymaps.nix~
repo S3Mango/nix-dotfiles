@@ -1,0 +1,114 @@
+{ lib, config, inputs, pkgs, ... }:
+{
+  programs.nvf = {
+    settings = {
+      vim = {
+        telescope.mappings = {
+          findFiles = "<C-f>";
+          liveGrep = "<C-g>";
+        };
+
+        keymaps = [
+          {
+            key = "<C-c>";
+            mode = "i";
+            silent = true;
+            action = "<Esc>";
+          }
+          {
+            key = "H";
+            mode = ["n" "v"];
+            silent = true;
+            action = "6h";
+          }
+          {
+            key = "K";
+            mode = ["n" "v"];
+            silent = true;
+            action = "6k";
+          }
+          {
+            key = "J";
+            mode = ["n" "v"];
+            silent = true;
+            action = "6j";
+          }
+          {
+            key = "L";
+            mode = ["n" "v"];
+            silent = true;
+            action = "6l";
+          }
+          {
+            key = "<C-h>";
+            mode = ["n" "v"];
+            silent = true;
+            action = "^";
+          }
+          {
+            key = "<C-k>";
+            mode = ["n" "v"];
+            silent = true;
+            action = "16kzz";
+          }
+          {
+            key = "<C-j>";
+            mode = ["n" "v"];
+            silent = true;
+            action = "16jzz";
+          }
+          {
+            key = "<C-l>";
+            mode = ["n" "v"];
+            silent = true;
+            action = "$";
+          }
+          {
+            key = "<C-i>";
+            mode = "n";
+            silent = true;
+            action = "viwo<C-c>i";
+          }
+          {
+            key = "<C-i>";
+            mode = "n";
+            silent = true;
+            action = "viwo<C-c>i";
+          }
+          {
+            key = "<C-a>";
+            mode = "n";
+            silent = true;
+            action = "viw<C-c>a";
+          }
+          {
+            key = "Q";
+            mode = ["n" "v"];
+            silent = true;
+            action = "ggv0G$";
+          }
+          {
+            key = "<tab>";
+            mode = "v";
+            silent = true;
+            action = "mj>g'j";
+          }
+          {
+            key = "<tab>";
+            mode = "n";
+            silent = true;
+            action = "V>";
+          }
+        ];
+
+        theme.extraConfig = ''
+          vim.keymap.set("n", "<C-e>", vim.cmd.Ex)
+          vim.keymap.set("x", "p", [["_dP]])
+          vim.keymap.set({"n", "v"}, "<C-s>", [["+y]])
+          vim.opt.scrolloff = 8
+          vim.opt.hlsearch = false
+        '';
+      };
+    };
+  };
+}

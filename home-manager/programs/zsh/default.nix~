@@ -1,0 +1,72 @@
+{ lib, config, pkgs, ... }:
+let
+  zzScript = pkgs.writeShellScript "zz-script" ''
+    #!/bin/zsh
+
+    USER_PATH=$(cat "$1")
+    USER_HOME="${config.home.homeDirectory}"
+    DOT_DIR="${config.programs.zsh.dotDir}"
+    ZSHRC_DIR="$USER_HOME/$DOT_DIR/.zshrc"
+
+    if [ -z $2 ]; then
+      zsh -c "export PATH=$USER_PATH && source $ZSHRC_DIR && y"
+    else
+      zsh -c "export PATH=$USER_PATH && source $ZSHRC_DIR && y $2"
+    fi
+
+    rm -f "$1"
+  '';
+in
+{
+  options = {
+    flakeOption = lib.mkOption {
+      type = lib.types.str;
+      default = "desktop";
+      description = "Which flake option to use when building a configuration";
+    };
+
+    zsh-home_manager.enable = lib.mkEnableOption {
+      default = true;
+      description = "Enables zsh configuration on home-manager";
+    };
+  };
+
+  config = lib.mkIf true {
+    programs.zsh = {
+      enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      dotDir = ".config/zsh";
+  
+      initExtra = ''
+        eval "$(zoxide init zsh)"
+
+        function y() {
+          local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+          yazi "$@" --cwd-file="$tmp"
+          if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+            builtin cd -- "$cwd"
+          fi
+          rm -f -- "$tmp"
+        }
+
+        function zz {
+          if [ -z $1 ]; then
+            z .
+          else
+            z $1
+          fi
+          TEMP_PATH_FILE=$(mktemp /tmp/zz-user-path.XXXXXX)
+          echo "$PATH">$TEMP_PATH_FILE
+
+          sudo ${zzScript} $TEMP_PATH_FILE $1
+        }
+      '';
+
+      shellAliases = {
+        fl = "sudo nixos-rebuild switch --flake ~/.dotfiles#${config.flakeOption}";
+      };
+
+    };
+  };
+}
