@@ -6,10 +6,10 @@
       description = "Enables monitor config on Hyprland";
     };
 
-    hyprland_monitors.settings = {
+    hyprland_monitors.settings = lib.mkOption {
       default = [
-          "DP-2, 2560x1440@360Hz, 0x0, 1, vrr, 2"
-          "DP-1, 2560x1440@144Hz, autoright, 1, vrr, 2"
+          "DP-2, 2560x1440@360Hz, 0x0, 1"
+          "DP-1, 2560x1440@144Hz, auto-right, 1"
       ];
       description = "Hyprland monitor setup for a given host";
     };

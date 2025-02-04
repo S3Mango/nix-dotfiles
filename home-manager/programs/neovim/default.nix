@@ -1,4 +1,4 @@
-{ lib, config, pkgs, self, ... }: {
+{ lib, config, pkgs, ... }: {
 
   imports = [
     ./keymaps.nix
@@ -16,58 +16,48 @@
       neovim
     ];
 
-    programs.nixvim = {
-      enable = true;   
-      defaultEditor = true;
-      colorschemes.catppuccin = {
-        enable = true;
-        settings = {
-          flavour = "mocha";
-          transparent_background = true;
-        };
-      };
+    programs.nvf = {
+      enable = true;
 
-      plugins = {
-        web-devicons.enable = false;
+      settings = {
+        vim = {
+          autocomplete.nvim-cmp.enable = true;
+          statusline.lualine.enable = true;
+          telescope.enable = true;
+          undoFile.enable = true;
+          treesitter.enable = true;
 
-        telescope = {
-          enable = true;
-          keymaps = {
-            "<C-f>" = "find_files";
-            "<C-g>" = "live_grep";
+          theme = {
+            enable = true;
+            name = "catppuccin";
+            style = "mocha";
           };
-        };
 
-        lsp = {
-          enable = true;
-          servers = {
-            nil_ls.enable = true;
+          languages = {
+            enableLSP = true;
+	          enableTreesitter = true;
+	          nix.enable = true;
           };
+          
+	        options = {
+            tabstop = 2;
+            shiftwidth = 2;
+            wrap = false;
+          };
+
+	        lineNumberMode = "relNumber";
+
+          luaConfigPost = ''
+            local builtin = require('telescope.builtin')
+            vim.keymap.set("n", "<C-f>", builtin.find_files)
+            vim.keymap.set("n", "<C-g>", builtin.live_grep)
+
+            vim.keymap.set("n", "<C-e>", vim.cmd.Ex)
+            vim.keymap.set("x", "p", [["_dP]])
+            vim.keymap.set({"n", "v"}, "<C-s>", [["+y]])
+          '';
         };
-	
-        cmp-nvim-lsp.enable = true;
-
-        undotree.enable = true;
-        treesitter.enable = true;
-	lualine.enable = true;
       };
-
-      clipboard.providers.wl-copy.enable = true;
-
-      globalOpts = {
-        number = true;
-        relativenumber = true;
-
-        tabstop = 2;
-        shiftwidth = 2;
-        softtabstop = 0;
-      };
-
-      extraConfigLua = ''
-        vim.keymap.set("n", "<C-e>", vim.cmd.Ex)
-        vim.keymap.set("x", "p", [["_dP]])
-        vim.keymap.set({"n", "v"}, "<C-s>", [["+y]])
-      '';
     };
   };
 }

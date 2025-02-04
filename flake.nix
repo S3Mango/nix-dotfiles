@@ -20,12 +20,13 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixvim.follows = "nixpkgs";
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    flatpaks.url = "github:gmodena/nix-flatpak/main";
+    nvf.url = "github:notashelf/nvf";
+
     stylix.url = "github:danth/stylix";
   };
 

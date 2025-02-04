@@ -14,11 +14,11 @@
 
         "$terminal" = "kitty";
         "$browser" = "firefox";
-        "$discord" = "flatpak run io.github.equicord.equibop";
+        "$discord" = "equibop";
         
         bind = [
           # Kill focused window
-          "$mod SHIFT, E, exec, hyprctl dispatch killactive"
+          "$mod SHIFT, W, exec, hyprctl dispatch killactive"
 
           # Toggle whether the active window is floating
           "$mod, mouse:274, togglefloating"

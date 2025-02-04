@@ -9,7 +9,7 @@ wallpaperDir=$HOME/Pictures/Wallpapers/
 wallpaper="$(find ${wallpaperDir} -type l | shuf -n 1)"
 echo "${wallpaper}"
 
-# swww img ${wallpaper} --filter Nearest --transition-step 110 --transition-type center --transition-fps 60
+swww img ${wallpaper} --filter Nearest --transition-step 110 --transition-type center --transition-fps 60
 
 # /home/s3mango/.local/share/bin/set_firefox_tab_bg.sh "${wallpaper}" "${chromeDir}" &
 

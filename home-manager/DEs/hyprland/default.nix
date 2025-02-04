@@ -5,7 +5,7 @@
     ./animations.nix
     ./keybinds.nix
     ./layerrules.nix
-    # ./monitors.nix
+    ./monitors.nix
     ./theme.nix
     ./window-rules.nix
     ./workspaces.nix
@@ -26,6 +26,7 @@
       wl-clipboard
       networkmanagerapplet
       udiskie
+      pavucontrol
     ];
 
     wayland.windowManager.hyprland = {

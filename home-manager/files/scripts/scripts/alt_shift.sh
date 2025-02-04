@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 WORKSPACE=$(hyprctl activeworkspace | awk '/workspace ID/ {print $3}')
 if [[ $WORKSPACE -gt 10 ]]; then

@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     equibop_home-manager.enable = lib.mkOption {
@@ -8,14 +8,9 @@
   };
 
   config = lib.mkIf config.equibop_home-manager.enable {
-    services.flatpak.packages = [
-      { appId = "io.github.equicord.equibop"; origin = "flathub"; }
+    home.packages = with pkgs; [
+      equibop
     ];
-
-#    home.activation.copyConfigs = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-#      mkdir -p ${config.home.homeDirectory}/.var/app/io.github.equicord.equibop/config/equibop/settings
-#      cp -r ${./config_files}/* ${config.home.homeDirectory}/.var/app/io.github.equicord.equibop/config/equibop/settings/
-#    '';
   };
 }
 

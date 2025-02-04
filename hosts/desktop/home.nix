@@ -3,10 +3,10 @@
 {
   imports = [
      ../../home-manager
-     inputs.flatpaks.homeManagerModules.nix-flatpak
-     inputs.nixvim.homeManagerModules.nixvim
      inputs.stylix.homeManagerModules.stylix
+     inputs.nvf.homeManagerModules.default
   ];
+
   home.username = "s3mango";
   home.homeDirectory = "/home/s3mango";
   home.stateVersion = "24.11";
