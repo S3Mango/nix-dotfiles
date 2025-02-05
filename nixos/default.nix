@@ -7,7 +7,6 @@
     ./bluetooth.nix
     ./cachix.nix
     ./experimental-features.nix
-    ./flatpak.nix
     ./hyprland.nix
     ./keymap.nix
     ./locale.nix

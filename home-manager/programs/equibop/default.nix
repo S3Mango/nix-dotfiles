@@ -11,6 +11,13 @@
     home.packages = with pkgs; [
       equibop
     ];
+
+    home.file = {
+      ".config/equibop/settings/" = {
+        source = ./config_files;
+        recursive = true;
+      };
+    };
   };
 }
 

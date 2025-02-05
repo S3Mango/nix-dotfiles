@@ -1,8 +1,6 @@
 { ... }: {
 
   imports = [
-    ./DEs
-    ./files
-    ./misc
+    ./fonts
   ];
 }

@@ -17,7 +17,7 @@
       cursor = {
         package = pkgs.bibata-cursors;
         name = "Bibata-Original-Classic";
-        size = 20;
+        size = 30;
       };
 
       fonts = {
@@ -27,8 +27,24 @@
         };
 
         monospace = {
-          package = pkgs.jetbrains-mono;
-          name = "JetBrains Mono";
+          package = pkgs.nerd-fonts.jetbrains-mono;
+          name = "JetBrains Mono Nerd Font Mono";
+        };
+
+        sansSerif = {
+          package = pkgs.dejavu_fonts;
+          name = "Dejavu Sans";
+        };
+
+        serif = {
+          package = pkgs.dejavu_fonts;
+          name = "Dejavu Serif";
+        };
+
+        sizes = {
+          applications = 11;
+          desktop = 11;
+          popups = 11;
         };
       };
 

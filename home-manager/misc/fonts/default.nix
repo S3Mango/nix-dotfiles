@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     fonts_home-manager.enable = lib.mkOption {
@@ -11,14 +11,16 @@
     fonts.fontconfig.enable = true;
 
     home.packages = with pkgs; [
-      maple-mono-NF
       cascadia-code
-      mononoki
-      dejavu_fonts
+      maple-mono-NF
       material-design-icons
-      font-awesome
-      corefonts
+      mononoki
+      noto-fonts
+      noto-fonts-cjk-sans
       noto-fonts-color-emoji
+      font-awesome
+      fira-code
+      corefonts
     ];
   };
 }

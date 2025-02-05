@@ -4,7 +4,6 @@
     ./dunst
     ./equibop
     ./firefox
-    ./fonts
     ./kitty
     ./neovim
     ./rofi
@@ -12,6 +11,7 @@
     ./steam
     ./stylix
     ./swaylock
+    ./thorium
     ./waybar
     ./wlogout
     ./yazi
