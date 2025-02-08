@@ -17,7 +17,13 @@
         window_padding_width = 25;
         hide_window_decorations = "yes";
         cursor_trail = 1;
-	font_size = 16;
+        font_size = 16;
+      };
+    };
+
+    home.file = {
+      ".config/kitty/yazi" = {
+        source = ./config_files/yazi;
       };
     };
   };

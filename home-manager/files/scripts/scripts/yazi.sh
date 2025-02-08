@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

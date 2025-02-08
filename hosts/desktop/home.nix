@@ -1,6 +1,5 @@
-{ config, pkgs, inputs, ... }:
+{ inputs, ... }: {
 
-{
   imports = [
      ../../home-manager
      inputs.stylix.homeManagerModules.stylix

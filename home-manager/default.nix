@@ -1,8 +1,8 @@
 { ... }: {
 
   imports = [
-    ./DEs
     ./files
     ./misc
+    ./WMs
   ];
 }

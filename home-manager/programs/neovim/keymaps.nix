@@ -62,6 +62,18 @@
             }
             {
               mode = ["n" "v"];
+              key = "s";
+              action = "y";
+	            silent = true;
+            }
+            {
+              mode = "n";
+              key = "S";
+              action = "yy";
+	            silent = true;
+            }
+            {
+              mode = ["n" "v"];
               key = "<C-l>";
               action = "$";
 	            silent = true;

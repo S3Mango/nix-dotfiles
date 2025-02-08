@@ -16,13 +16,14 @@
       enable = true;
       profiles.s3mango = {
         extensions = with inputs.firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}; [
-	  bitwarden
-	  ublock-origin
-	  sponsorblock
-	  darkreader
-	];
+          bitwarden
+          ublock-origin
+          sponsorblock
+          darkreader
+          # scroll_anywhere
+          # imagus
+        ];
       };
     };
   };
 }
-

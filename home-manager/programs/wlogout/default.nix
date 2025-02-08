@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     wlogout_home-manager.enable = lib.mkOption {
@@ -11,13 +11,6 @@
     home.packages = with pkgs; [
       wlogout
     ];
-
-    home.file = {
-      ".config/wlogout/" = {
-        source = ./config_files;
-        recursive = true;
-      };
-    };
   };
 }
 

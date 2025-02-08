@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     gtk_home-manager.enable = lib.mkOption {

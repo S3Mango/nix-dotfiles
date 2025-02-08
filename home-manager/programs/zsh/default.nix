@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, ... }: {
 
   options = {
     hostMachine = lib.mkOption {
@@ -21,8 +21,6 @@
       dotDir = ".config/zsh";
   
       initExtra = ''
-        eval "$(zoxide init zsh)"
-
         function y() {
           local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
           yazi "$@" --cwd-file="$tmp"
@@ -39,13 +37,41 @@
             z $1 && y
           fi
         }
-      '';
 
-      shellAliases = {
-        sys = "sudo nixos-rebuild switch --flake ~/.dotfiles#${config.hostMachine}";
-        home = "home-manager switch --flake ~/.dotfiles#${config.hostMachine}";
-        up = "sudo nix flake update --flake ~/.dotfiles/";
-      };
+        function sys {
+          if [[ $1 == "add" ]]; then
+            wd=$(pwd)
+            z ~/.dotfiles/
+            sudo git add .
+            z $wd
+          fi
+          sudo nixos-rebuild switch --flake ~/.dotfiles#${config.hostMachine}
+        }
+
+        function home {
+          if [[ $1 == "add" ]]; then
+            wd=$(pwd)
+            z ~/.dotfiles/
+            sudo git add .
+            z $wd
+          fi
+          home-manager switch --flake ~/.dotfiles#${config.hostMachine}
+        }
+
+        function up {
+          if [[ $1 == "add" ]]; then
+            wd=$(pwd)
+            z ~/.dotfiles/
+            sudo git add .
+            z $wd
+          fi
+          sudo nix flake update --flake ~/.dotfiles/
+        }
+      '';
+    };
+    programs.zoxide = {
+      enable = true;
+      enableZshIntegration = true;
     };
   };
 }

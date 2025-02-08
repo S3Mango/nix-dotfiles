@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     yazi_home-manager.enable = lib.mkOption {
@@ -17,7 +17,6 @@
       fd
       ripgrep
       fzf
-      zoxide
       imagemagick
     ];
 

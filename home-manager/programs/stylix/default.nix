@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     stylix_home-manager.enable = lib.mkOption {
@@ -32,13 +32,13 @@
         };
 
         sansSerif = {
-          package = pkgs.dejavu_fonts;
-          name = "Dejavu Sans";
+          package = pkgs.noto-fonts;
+          name = "Noto Sans";
         };
 
         serif = {
-          package = pkgs.dejavu_fonts;
-          name = "Dejavu Serif";
+          package = pkgs.noto-fonts;
+          name = "Noto Serif";
         };
 
         sizes = {

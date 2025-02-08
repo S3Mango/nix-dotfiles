@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     waybar_home-manager.enable = lib.mkOption {
@@ -11,13 +11,6 @@
     home.packages = with pkgs; [
       waybar
     ];
-
-    home.file = {
-      ".config/waybar/" = {
-        source = ./config_files;
-        recursive = true;
-      };
-    };
   };
 }
 

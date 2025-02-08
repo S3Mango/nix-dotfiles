@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/usr/bin/env bash
 src=$HOME/Scripts/
 
 echo "" > $src/addresses.txt

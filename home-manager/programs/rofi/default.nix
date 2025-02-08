@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     rofi_home-manager.enable = lib.mkOption {
@@ -11,6 +11,13 @@
     home.packages = with pkgs; [
       rofi-wayland
     ];
+
+    home.file = {
+      ".config/rofi/" = {
+        source = ./config_files;
+        recursive = true;
+      };
+    };
   };
 }
 

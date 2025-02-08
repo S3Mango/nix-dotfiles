@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
 
 wallpaperDir=$HOME/Pictures/Wallpapers/
-# chromeDir=$HOME/.zen/x3c3na4u.Default\ \(alpha\)/chrome/
-# browser="zen-browser"
-# service="zen-bin"
-# class="zen-beta"
 
 wallpaper="$(find ${wallpaperDir} -type l | shuf -n 1)"
 echo "${wallpaper}"
 
 swww img ${wallpaper} --filter Nearest --transition-step 110 --transition-type center --transition-fps 60
 
-# /home/s3mango/.local/share/bin/set_firefox_tab_bg.sh "${wallpaper}" "${chromeDir}" &
+magick convert ${wallpaper}[0] -scale "1920x1080^" ~/.config/rofi/background.png 
 
 # result=$(hyprctl clients -j | jq --arg class "$class" '[.[].class == $class] | any')
 

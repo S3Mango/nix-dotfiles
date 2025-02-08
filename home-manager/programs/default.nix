@@ -1,17 +1,22 @@
 { ... }: {
 
   imports = [
+    ./brave
+    ./btop
+    ./cemu
     ./dunst
     ./equibop
+    ./fastfetch
     ./firefox
     ./kitty
+    ./krita
+    ./lmstudio
     ./neovim
     ./rofi
     ./spotify
-    ./steam
+    ./starship
     ./stylix
     ./swaylock
-    ./thorium
     ./waybar
     ./wlogout
     ./yazi

@@ -1,4 +1,4 @@
-{ lib, config, inputs, pkgs, ... }: {
+{ lib, config, ... }: {
 
   options = {
     wallpapers_home-manager.enable = lib.mkOption {

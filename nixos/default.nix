@@ -1,21 +1,22 @@
 { ... }: {
 
   imports = [
-    ./audio.nix
-    ./autologin.nix
-    ./bootloader.nix
-    ./bluetooth.nix
-    ./cachix.nix
-    ./experimental-features.nix
-    ./hyprland.nix
-    ./keymap.nix
-    ./locale.nix
-    ./networking.nix
-    ./printing.nix
-    ./timezone.nix
-    ./udisk2.nix
-    ./unfree.nix
-    ./users.nix
-    ./zsh.nix
+    ./audio
+    ./autologin
+    ./bootloader
+    ./bluetooth
+    ./cachix
+    ./experimental-features
+    ./hyprland
+    ./keymap
+    ./locale
+    ./networking
+    ./printing
+    ./steam
+    ./timezone
+    ./udisk2
+    ./unfree
+    ./users
+    ./zsh
   ];
 }

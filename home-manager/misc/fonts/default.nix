@@ -15,8 +15,6 @@
       maple-mono-NF
       material-design-icons
       mononoki
-      noto-fonts
-      noto-fonts-cjk-sans
       noto-fonts-color-emoji
       font-awesome
       fira-code
