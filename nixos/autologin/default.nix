@@ -10,5 +10,6 @@
   config = lib.mkIf config.autologin_nixos.enable {
     services.getty.autologinUser = "s3mango";
   };
+
 }
 

@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     bluetooth_nixos.enable = lib.mkOption {
@@ -8,8 +8,27 @@
   };
 
   config = lib.mkIf config.bluetooth_nixos.enable {
-    hardware.bluetooth.enable = true;
-    hardware.bluetooth.powerOnBoot = true;
     services.blueman.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      bluez
+      bluez-tools
+    ];
+
+    hardware.bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+      package = pkgs.bluez;
+      settings.Policy.AutoEnable = "true";
+      settings.General = {
+          Enable = "Source,Sink,Media,Socket";
+          Name = "Hello";
+          ControllerMode = "dual";
+          FastConnectable = "true";
+          Experimental = "true";
+          KernelExperimental = "true";
+      };
+    };
   };
+
 }

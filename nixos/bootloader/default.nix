@@ -3,12 +3,26 @@
   options = {
     bootloader_nixos.enable = lib.mkOption {
       default = true;
-      description = "Enables Systemd Boot with NixOS modules";
+      description = "Enables Bootloading options with NixOS modules";
     };
   };
 
   config = lib.mkIf config.bootloader_nixos.enable {
-    boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
+    boot = {
+      kernelParams = [ "quiet" "loglevel=0" ];
+      plymouth.enable = true;
+      loader = {
+        efi.canTouchEfiVariables = true;
+        systemd-boot.enable = false;
+        grub = {
+          enable = true;
+          efiSupport =  true;
+          devices = [
+            "nodev"
+          ];
+        };
+      };
+    };
   };
+
 }

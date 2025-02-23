@@ -10,4 +10,5 @@
   config = lib.mkIf config.experimental-features_nixos.enable {
     nix.settings.experimental-features = [ "nix-command" "flakes" ];
   };
+
 }

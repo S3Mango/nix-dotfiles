@@ -1,18 +1,24 @@
-{ inputs, ... }: {
+{ lib, inputs, ... }: {
 
   imports = [
-     ../../home-manager
-     inputs.stylix.homeManagerModules.stylix
-     inputs.nvf.homeManagerModules.default
+    ../../home-manager
+    inputs.stylix.homeManagerModules.stylix
+    inputs.nvf.homeManagerModules.default
+    inputs.betterfox.homeManagerModules.betterfox
   ];
 
-  home.username = "s3mango";
-  home.homeDirectory = "/home/s3mango";
-  home.stateVersion = "24.11";
-  home.sessionVariables = {
-    EDITOR = "nvim";
+  config = {
+    home.username = "s3mango";
+    home.homeDirectory = "/home/s3mango";
+    home.stateVersion = "24.11";
+    home.sessionVariables = {
+      EDITOR = "nvim";
+    };
+
+    enableAllGames_home-manager = lib.mkForce true;
+    enableAllGUI_home-manager = lib.mkForce true;
+
+    programs.home-manager.enable = true;
   };
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 }

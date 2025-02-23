@@ -10,7 +10,7 @@
   config = lib.mkIf config.hyprland_keybinds.enable {
     wayland.windowManager.hyprland = {
       settings = {
-        # NOTE: my super and alt key are swapped, so most people should swap mod2 and mod3
+        # NOTE: my super and alt key are swapped because weird firmware stuff, so most people should swap mod2 and mod3
         "$mod1" = "CONTROL_L";
         "$mod2" = "SUPER_L";
         "$mod3" = "ALT_L";
@@ -58,9 +58,13 @@
 
           # Rofi
           "SUPER, $mod2, exec, pkill -x rofi || rofi -show drun -config ~/.config/rofi/config.rasi" # Change SUPER to ALT if mod2 and mod3 are swapped
+
+          # Reset Waybar
+          "$mod1 $mod2, W, exec, pkill waybar"
+          "$mod1 $mod2, W, exec, waybar"
      
           # Screenshot
-          "$mod3 SHIFT, S, exec, grim -g \"$(slurp -d)\" - | wl-copy"
+          ''$mod3 SHIFT, S, exec, grim -g "$(slurp -f %X,%Y\ %Wx%H)" - | wl-copy''
 
           # Clipboard history 
           # "$mod SHIFT, Q, exec pkill -x rofi || ~/Scripts/cliphist.sh c" 
@@ -126,5 +130,6 @@
       };
     };
   };
+
 }
 

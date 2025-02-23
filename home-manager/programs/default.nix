@@ -1,25 +1,19 @@
-{ ... }: {
+{ lib, ... }: {
 
   imports = [
-    ./brave
-    ./btop
-    ./cemu
-    ./dunst
-    ./equibop
-    ./fastfetch
-    ./firefox
-    ./kitty
-    ./krita
-    ./lmstudio
-    ./neovim
-    ./rofi
-    ./spotify
-    ./starship
-    ./stylix
-    ./swaylock
-    ./waybar
-    ./wlogout
-    ./yazi
-    ./zsh
+    ./games
+    ./GUI
+    ./shells
+    ./TUI
+    ./UI
+    ./utilities
   ];
+
+  config = {
+    enableAllTUI_home-manager = lib.mkDefault true;
+    enableAllUtilities_home-manager = lib.mkDefault true;
+    firefox_home-manager.enable = lib.mkDefault true;
+    zsh_home-manager.enable = lib.mkDefault true;
+  };
+
 }

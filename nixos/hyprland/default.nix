@@ -14,4 +14,5 @@
   config = lib.mkIf config.hyprland_nixos.enable {
     programs.hyprland.enable = true;
   };
+
 }

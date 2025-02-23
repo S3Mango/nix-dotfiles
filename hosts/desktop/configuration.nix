@@ -1,19 +1,21 @@
 { pkgs, ... }: {
 
   imports =
-    [ 
-      ./hardware-configuration.nix
-      ../../nixos
-    ];
-
-  environment.systemPackages = with pkgs; [
-     vim 
-     wget
-     git
-     home-manager
+  [ 
+    ./hardware-configuration.nix
+    ../../nixos
   ];
-  
-  # Replace with your own
-  system.stateVersion = "24.11";
+
+  config = {
+    environment.systemPackages = with pkgs; [
+       vim 
+       wget
+       git
+       home-manager
+    ];
+    
+    # Replace with your own
+    system.stateVersion = "24.11";
+  };
 
 }

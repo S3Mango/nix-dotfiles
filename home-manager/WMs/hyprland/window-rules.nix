@@ -21,7 +21,8 @@
           "opacity 0.90 0.90, class:^(org.pulseaudio.pavucontrol)$"
           "opacity 0.90 0.90, class:^(.blueman-manager-wrapped)$"
           "opacity 0.90 0.90, class:^(org.freedesktop.impl.portal.desktop.hyprland)$"
-          "opacity 0.90 0.90, class:^(steamwebhelper)$"
+          "opacity 0.90 0.90, class:^(rofi)$"
+          "opacity 0.90 0.90, class:^(steam)$"
           "opacity 0.90 0.90, class:^(Spotify)$"
           "opacity 0.90 0.90, class:^(com.github.tchx84.Flatseal)$"
           "opacity 0.90 0.90, class:^(com.obsproject.Studio)$"
@@ -35,9 +36,9 @@
           "float, class:^(nm-applet)$"
           "float, class:^(nm-connection-editor)$"
 
-          "fullscreen, class:^steam_app\d+$"
-          "monitor 1, class:^steam_app\d+$"
-          "workspace 10, class:^steam_app\d+$"
+          "fullscreen, class:(steam_app)(.*)"
+          "monitor 1, class:(steam_app)(.*)"
+          "workspace 20, class:(steam_app)(.*)"
 
           "noinitialfocus, class:^(equibop)$"
           "workspace 1 silent, class:^(equibop)$"
@@ -45,4 +46,5 @@
       };
     };
   };
+
 }

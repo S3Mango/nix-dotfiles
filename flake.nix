@@ -21,14 +21,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    firefox-addons = {
-      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nvf.url = "github:notashelf/nvf";
 
     stylix.url = "github:danth/stylix";
+
+    betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
   };
 
   outputs = { self, nixpkgs, hyprland, home-manager, ... }@inputs:
@@ -38,6 +35,7 @@
       inherit system;
       config = {
         allowUnfree = true;
+        allowUnfreePredicate = (_: true);
       };
     };
   in
@@ -74,4 +72,5 @@
       };
     };
   };
+
 }

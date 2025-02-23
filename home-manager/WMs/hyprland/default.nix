@@ -12,24 +12,25 @@
   ];
 
   options = {
-    hyprland_home-manager.enable = lib.mkOption {
-      default = true;
-      description = "Enables configuration of Hyprland on home-manager";
-    };
+    hyprland_home-manager.enable = 
+      lib.mkEnableOption "Enables configuration of Hyprland on home-manager";
   };
 
   config = lib.mkIf config.hyprland_home-manager.enable {
-    home.packages = with pkgs; [
-      wireplumber
-      polkit
-      swww
-      wl-clipboard
-      networkmanagerapplet
-      udiskie
-      pavucontrol
-      grim
-      slurp
-    ];
+
+    dunst_home-manager.enable = true;
+    grim_home-manager.enable = true;
+    nm-applet_home-manager.enable = true;
+    pavucontrol_home-manager.enable = true;
+    polkit_home-manager.enable = true;
+    rofi_home-manager.enable = true;
+    slurp_home-manager.enable = true;
+    swww_home-manager.enable = true;
+    udiskie_home-manager.enable = true;
+    waybar_home-manager.enable = true;
+    wireplumber_home-manager.enable = true;
+    wl-clipboard_home-manager.enable = true;
+    wlogout_home-manager.enable = true;
 
     wayland.windowManager.hyprland = {
       enable = true;
@@ -71,15 +72,15 @@
         "swww-daemon --no-cache"
         "steam -silent"
         "otd-daemon"
-        "waybar"
-        "blueman-applet"
         "udiskie --no-automount --smart-tray"
         "nm-applet --indicator"
         "dunst"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
-        "sleep 1 && $HOME/Scripts/swwwallpaper.sh &"
-        "sleep 2 && equibop"
+        "sleep 1.5 && $HOME/Scripts/swwwallpaper.sh &"
+        "sleep 3 && waybar"
+        "sleep 4 && equibop"
+        "sleep 5 && blueman-applet"
       ];
 
       misc = {
@@ -92,4 +93,5 @@
       };
     };
   };
+
 }
