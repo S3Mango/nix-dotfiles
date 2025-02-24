@@ -161,7 +161,7 @@
             "enabled": false
         },
         "DisableCallIdle": {
-            "enabled": false
+            "enabled": true
         },
         "DontRoundMyTimestamps": {
             "enabled": false
@@ -177,7 +177,7 @@
             "enabled": false
         },
         "FakeNitro": {
-            "enabled": false,
+            "enabled": true,
             "enableEmojiBypass": true,
             "emojiSize": 48,
             "transformEmojis": true,
@@ -209,7 +209,7 @@
             "enabled": false
         },
         "FixYoutubeEmbeds": {
-            "enabled": false
+            "enabled": true
         },
         "ForceOwnerCrown": {
             "enabled": false
@@ -269,7 +269,7 @@
             "showAtSymbol": true
         },
         "MessageClickActions": {
-            "enabled": false
+            "enabled": true
         },
         "MessageLatency": {
             "enabled": false

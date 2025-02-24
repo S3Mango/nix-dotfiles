@@ -7,6 +7,8 @@
   ];
 
   config = {
+    hostMachine = "laptop";
+
     environment.systemPackages = with pkgs; [
        vim 
        wget

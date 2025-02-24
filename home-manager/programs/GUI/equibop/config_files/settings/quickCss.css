@@ -5934,8 +5934,46 @@ body {
     display: none !important
 }
 
+/*
+ *
+ *  FIX USER SECTION (BOTTOM LEFT)
+ *
+ */
+
 .theme-dark .content__37e49 {
     background: transparent !important;
+}
+
+/*
+ *
+ *  EQUIBOP PLUGIN STATS PANEL
+ *
+ */
+
+.vc-plugin-stats {
+    background-color: transparent !important;
+}
+
+/*
+ *
+ *  EQUICORD SETTINGS
+ *
+ */
+
+element.style {
+    background-image: none !important;
+}
+
+.vc-special-title {
+    color: #FFF !important;
+}
+
+.vc-special-text {
+    color: #FFF !important;
+}
+
+.vc-settings-quickActions-pill {
+    background: var(--main-content-color);
 }
 
 /*# sourceMappingURL=main.css.map */

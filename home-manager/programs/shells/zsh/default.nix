@@ -35,6 +35,16 @@
             z $1 && y
           fi
         }
+        
+        function up {
+          if [[ $1 == "add" ]]; then
+            wd=$(pwd)
+            z ~/.dotfiles/
+            sudo git add .
+            z $wd
+          fi
+          sudo nix flake update --flake ~/.dotfiles/
+        }
 
         function sys {
           if [[ $1 == "add" ]]; then
@@ -56,16 +66,12 @@
           home-manager switch --flake ~/.dotfiles#${config.hostMachine}
         }
 
-        function up {
-          if [[ $1 == "add" ]]; then
-            wd=$(pwd)
-            z ~/.dotfiles/
-            sudo git add .
-            z $wd
-          fi
-          sudo nix flake update --flake ~/.dotfiles/
-        }
       '';
+
+      shellAliases = {
+        clean = "sudo nix-collect-garbage --delete-older-than 15d";
+        full = "up && sys add && home add && clean";
+      };
     };
   };
 
