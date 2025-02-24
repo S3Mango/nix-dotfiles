@@ -1,25 +1,21 @@
-{ ... }: {
+{ lib, ... }: {
 
   imports = [
-    ./audio
-    ./autologin
-    ./bootloader
-    ./bluetooth
-    ./cachix
-    ./efibootmgr
-    ./experimental-features
-    ./hyprland
-    ./keymap
-    ./locale
-    ./networking
-    ./printing
-    ./steam
-    ./tablet
-    ./timezone
-    ./udisk2
-    ./unfree
-    ./users
-    ./zsh
+    ./boot
+    ./building
+    ./programs
+    ./services
+    ./settings
+    ./shells
   ];
+
+  config = {
+    enableAllBoot_nixos = lib.mkDefault true;
+    enableAllBuilding_nixos = lib.mkDefault true;
+    enableAllServices_nixos = lib.mkDefault true;
+    enableAllSettings_nixos = lib.mkDefault true;
+    hyprland_nixos.enable = lib.mkDefault true;
+    zsh_nixos.enable = lib.mkDefault true;
+  };
 
 }

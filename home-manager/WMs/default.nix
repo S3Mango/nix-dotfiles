@@ -1,9 +1,11 @@
-{ ... }: {
+{ lib, ... }: {
 
   imports = [
     ./hyprland
   ];
 
-  hyprland_home-manager.enable = true;
+  config = {
+    hyprland_home-manager.enable = lib.mkDefault true;
+  };
 
 }

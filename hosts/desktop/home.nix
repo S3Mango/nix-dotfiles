@@ -10,6 +10,7 @@
   config = {
     home.username = "s3mango";
     home.homeDirectory = "/home/s3mango";
+    # Replace with your own
     home.stateVersion = "24.11";
     home.sessionVariables = {
       EDITOR = "nvim";

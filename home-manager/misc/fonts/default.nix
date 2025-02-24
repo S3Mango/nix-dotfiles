@@ -1,10 +1,8 @@
 { lib, config, pkgs, ... }: {
 
   options = {
-    fonts_home-manager.enable = lib.mkOption {
-      default = true;
-      description = "Adds fonts using home-manager";
-    };
+    fonts_home-manager.enable = 
+      lib.mkEnableOption "Adds fonts using home-manager";
   };
 
   config = lib.mkIf config.fonts_home-manager.enable {

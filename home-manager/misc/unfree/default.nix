@@ -1,10 +1,8 @@
 { lib, config, ... }: {
 
   options = {
-    unfree_home-manager.enable = lib.mkOption {
-      default = true;
-      description = "Allows unfree packages with home-manager";
-    };
+    unfree_home-manager.enable = 
+      lib.mkEnableOption "Allows unfree packages with home-manager";
   };
 
   config = lib.mkIf config.unfree_home-manager.enable {

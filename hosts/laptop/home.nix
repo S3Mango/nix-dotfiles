@@ -14,9 +14,6 @@
       EDITOR = "nvim";
     };
 
-    enableAllGames_home-manager = lib.mkForce true;
-    enableAllGUI_home-manager = lib.mkForce true;
-
     programs.home-manager.enable = true;
   };
 

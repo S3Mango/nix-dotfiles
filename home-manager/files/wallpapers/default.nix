@@ -1,10 +1,8 @@
 { lib, config, ... }: {
 
   options = {
-    wallpapers_home-manager.enable = lib.mkOption {
-      default = true;
-      description = "Adds wallpapers with home-manager";
-    };
+    wallpapers_home-manager.enable = 
+      lib.mkEnableOption "Adds wallpapers with home-manager";
   };
 
   config = lib.mkIf config.wallpapers_home-manager.enable {
