@@ -22,7 +22,7 @@ tooltip {
 
 #workspaces button {
     box-shadow: none;
-	text-shadow: none;
+    text-shadow: none;
     padding: 0px;
     border-radius: 9px;
     margin-top: 3px;
@@ -55,7 +55,7 @@ tooltip {
 
 #taskbar button {
     box-shadow: none;
-	text-shadow: none;
+    text-shadow: none;
     padding: 0px;
     border-radius: 9px;
     margin-top: 3px;
@@ -94,32 +94,15 @@ tooltip {
     min-height: 10px
 }
 
-#backlight,
 #battery,
-#bluetooth,
-#custom-cliphist,
 #clock,
-#custom-cpuinfo,
-#cpu,
-#custom-gpuinfo,
-#idle_inhibitor,
-#custom-keybindhint,
-#language,
-#memory,
-#mpris,
 #network,
-#custom-notifications,
 #custom-power,
-#privacy,
 #wireplumber,
 #custom-spotify,
 #taskbar,
-#custom-theme,
 #tray,
-#custom-updates,
 #custom-wallchange,
-#custom-wbar,
-#window,
 #workspaces,
 #custom-l_end,
 #custom-r_end,

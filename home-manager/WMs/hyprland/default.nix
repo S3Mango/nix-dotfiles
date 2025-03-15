@@ -26,7 +26,6 @@
     rofi_home-manager.enable = true;
     slurp_home-manager.enable = true;
     swww_home-manager.enable = true;
-    udiskie_home-manager.enable = true;
     waybar_home-manager.enable = true;
     wireplumber_home-manager.enable = true;
     wl-clipboard_home-manager.enable = true;
@@ -72,15 +71,15 @@
         "swww-daemon --no-cache"
         "steam -silent"
         "otd-daemon"
-        "udiskie --no-automount --smart-tray"
+        "udiskie --smart-tray"
         "nm-applet --indicator"
         "dunst"
         "wl-paste --type text --watch cliphist store"
         "wl-paste --type image --watch cliphist store"
         "sleep 1.5 && $HOME/Scripts/swwwallpaper.sh &"
         "sleep 3 && waybar"
-        "sleep 4 && equibop"
         "sleep 5 && blueman-applet"
+        "sleep 6 && equibop"
       ];
 
       misc = {

@@ -16,7 +16,7 @@
         "$mod3" = "ALT_L";
 
         "$terminal" = "kitty";
-        "$browser" = "firefox";
+        "$browser" = "floorp";
         "$discord" = "equibop";
         
         bind = [

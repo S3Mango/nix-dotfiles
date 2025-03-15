@@ -20,92 +20,6 @@
 
 // sourced from modules based on config.ctl //
 
-    "cpu": {
-        "interval": 10,
-        "format": "󰍛 {usage}%",
-        "rotate": 0,
-        "format-alt": "{icon0}{icon1}{icon2}{icon3}",
-        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"]
-    },
-
-    "memory": {
-        "states": {
-            "c": 90, // critical
-            "h": 60, // high
-            "m": 30, // medium
-        },
-        "interval": 30,
-        "format": "󰾆 {used}GB",
-        "rotate": 0,
-        "format-m": "󰾅 {used}GB",
-        "format-h": "󰓅 {used}GB",
-        "format-c": " {used}GB",
-        "format-alt": "󰾆 {percentage}%",
-        "max-length": 10,
-        "tooltip": true,
-        "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
-    },
-
-    "custom/cpuinfo": {
-        "exec": " cpuinfo.sh",
-        "return-type": "json",
-        "format": "{}",
-        "rotate": 0,
-        "interval": 5, // once every 5 seconds
-        "tooltip": true,
-        "max-length": 1000
-    },
-
-    "custom/gpuinfo": {
-        "exec": " gpuinfo.sh",
-        "return-type": "json",
-        "format": "{}",
-        "rotate": 0,
-        "interval": 5, // once every 5 seconds
-        "tooltip": true,
-        "max-length": 1000,
-        "on-click": "gpuinfo.sh --toggle",
-    },
-
-    "custom/gpuinfo#nvidia": {
-        "exec": " gpuinfo.sh --use nvidia ",
-        "return-type": "json",
-        "format": "{}",
-        "rotate": 0,
-        "interval": 5, // once every 5 seconds
-        "tooltip": true,
-        "max-length": 1000,
-    },
-
-    "custom/gpuinfo#amd": {
-        "exec": " gpuinfo.sh --use amd ",
-        "return-type": "json",
-        "format": "{}",
-        "rotate": 0,
-        "interval": 5, // once every 5 seconds
-        "tooltip": true,
-        "max-length": 1000,
-    },
-
-    "custom/gpuinfo#intel": {
-        "exec": " gpuinfo.sh --use intel ",
-        "return-type": "json",
-        "format": "{}",
-        "rotate": 0,
-        "interval": 5, // once every 5 seconds
-        "tooltip": true,
-        "max-length": 1000,
-    },
-
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "rotate": 0,
-        "format-icons": {
-            "activated": "󰥔",
-            "deactivated": ""
-        }
-    },
-
     "clock": {
         "format": "{:%I:%M %p}",
         "rotate": 0,
@@ -143,13 +57,6 @@
         "format": "{icon}",
         "format-window-separator": "\n",
         "window-rewrite-default": "",
-        "window-rewrite": {
-            "title<.*youtube.*>": "", // Windows whose titles contain "youtube"
-            "class<firefox>": "", // Windows whose classes are "firefox"
-            "class<firefox> title<.*github.*>": "", // Windows whose class is "firefox" and title contains "github". Note that "class" always comes first.
-            "foot": "", // Windows that contain "foot" in either class or title. For optimization reasons, it will only match against a title if at least one other window explicitly matches against a title.
-            "code": "󰨞"
-        }
     },
 
     "wlr/taskbar": {
@@ -164,20 +71,6 @@
       "ignore-list": [
         "Alacritty"
       ],
-      "app_ids-mapping": {
-        "firefoxdeveloperedition": "firefox-developer-edition",
-        "jetbrains-datagrip": "DataGrip"
-      }
-    },
-
-    "backlight": {
-        "device": "intel_backlight",
-        "rotate": 0,
-        "format": "{icon} {percent}%",
-        "format-icons": ["", "", "", "", "", "", "", "", ""],
-        "on-scroll-up": "brightnessctl set 1%+",
-        "on-scroll-down": "brightnessctl set 1%-",
-        "min-length": 6
     },
 
     "network": {
@@ -193,24 +86,6 @@
         "interval": 2,
     },
 
-    "pulseaudio": {
-        "format": "{icon} {volume}",
-        "rotate": 0,
-        "format-muted": "婢",
-        "on-click": "pavucontrol -t 3",
-        "on-click-right": "~/Scripts/volumecontrol.sh -o m",
-        "on-scroll-up": "~/Scripts/volumecontrol.sh -o i",
-        "on-scroll-down": "~/Scripts/volumecontrol.sh -o d",
-        "tooltip-format": "{icon} {desc} // {volume}%",
-        "scroll-step": 5,
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "default": ["", "", ""]
-        }
-    },
-
     "wireplumber": {
         "format": "{icon} {volume}%",
         "format-muted": "",
@@ -221,35 +96,6 @@
             "headset": "",
             "default": ["", "", ""],
         "scroll-step": 5
-    },
-
-    "custom/updates": {
-        "exec": "~/Scripts/systemupdate.sh",
-        "return-type": "json",
-        "format": "{}",
-        "rotate": 0,
-        "on-click": "hyprctl dispatch exec '~/Scripts/systemupdate.sh up'",
-        "interval": 86400, // once every day
-        "tooltip": true,
-        "signal": 20,
-    },
-
-    "privacy": {
-        "icon-size": 14,
-        "icon-spacing": 5,
-        "transition-duration": 250,
-        "modules": [
-            {
-                "type": "screenshare",
-                "tooltip": true,
-                "tooltip-icon-size": 24
-            },
-            {
-                "type": "audio-in",
-                "tooltip": true,
-                "tooltip-icon-size": 24
-            }
-        ]
     },
 
     "tray": {
@@ -273,41 +119,20 @@
     },
 
     "custom/wallchange": {
-        "format": "{}",
+        "format": "󰆊 {}",
+        "tooltip-format": "󰆊  switch wallpaper",
         "rotate": 0,
-        "exec": "echo ; echo 󰆊 switch wallpaper",
+        "exec": "echo ; echo 󰆊  switch wallpaper",
         "on-click": "~/Scripts/swwwallpaper.sh",
         "interval" : 86400, // once every day
         "tooltip": true
     },
 
-    "custom/wbar": {
-        "format": "{}", //    //
-        "rotate": 0,
-        "exec": "echo ; echo  switch bar //  dock",
-        "on-click": "wbarconfgen.sh n",
-        "on-click-right": "wbarconfgen.sh p",
-        "on-click-middle": "sleep 0.1 && quickapps.sh kitty firefox spotify code dolphin",
-        "interval" : 86400,
-        "tooltip": true
-    },
-
-    "custom/cliphist": {
-        "format": "{}",
-        "rotate": 0,
-        "exec": "echo ; echo 󰅇 clipboard history",
-        "on-click": "sleep 0.1 && cliphist.sh c",
-        "on-click-right": "sleep 0.1 && cliphist.sh d",
-        "on-click-middle": "sleep 0.1 && cliphist.sh w",
-        "interval" : 86400, // once every day
-        "tooltip": true
-    },
-
     "custom/power": {
-        "format": "{}",
-        "tooltip-format": " logout",
+        "format": "",
+        "tooltip-format": "  logout",
         "rotate": 0,
-        "exec": "echo ; echo  logout",
+        "exec": "echo ; echo   logout",
         "on-click": "wlogout",
         "interval" : 86400, // once every day
         "tooltip": true
@@ -315,8 +140,10 @@
 
     "custom/flake": {
         "format": "\uf313",
+        "tooltip-format": "NixOS btw",
+        "on-click": "kitty --session ~/.config/kitty/fastfetch",
         "interval" : "once",
-        "tooltip": false
+        "tooltip": true
     },
 
 

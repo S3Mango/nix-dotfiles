@@ -27,9 +27,9 @@
 
           theme = {
             enable = true;
-            name = "catppuccin";
-            style = "mocha";
             transparent = false;
+            name = lib.mkForce "catppuccin";
+            style = "mocha";
           };
 
           languages = {
@@ -54,7 +54,7 @@
             vim.keymap.set("n", "<C-g>", builtin.live_grep)
 
             vim.keymap.set("n", "<C-q>", vim.cmd.q)
-            vim.keymap.set("n", "<C-w>", vim.cmd.w)
+            vim.keymap.set("n", "<C-w>", vim.cmd.wq)
             vim.keymap.set("n", "<C-e>", vim.cmd.Ex)
             vim.keymap.set("x", "p", [["_dP]])
             vim.keymap.set({"n", "v"}, "<C-s>", [["+y]])

@@ -27,6 +27,9 @@
       ".config/kitty/yazi" = {
         source = ./config_files/yazi;
       };
+      ".config/kitty/fastfetch" = {
+        source = ./config_files/fastfetch;
+      };
     };
   };
 

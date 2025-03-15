@@ -8,13 +8,14 @@
     ./grim
     ./imagemagick
     ./jq
+    ./ouch
     ./poppler
+    ./rich-cli
     ./ripgrep
     ./slurp
     ./starship
     ./stylix
     ./swww
-    ./udiskie
     ./wireplumber
     ./wl-clipboard
     ./zoxide
@@ -36,14 +37,15 @@
     grim_home-manager.enable = lib.mkIf utilsFlag true;
     imagemagick_home-manager.enable = lib.mkIf utilsFlag true;
     jq_home-manager.enable = lib.mkIf utilsFlag true;
+    ouch_home-manager.enable = lib.mkIf utilsFlag true;
     poppler_home-manager.enable = lib.mkIf utilsFlag true;
+    rich-cli_home-manager.enable = lib.mkIf utilsFlag true;
     ripgrep_home-manager.enable = lib.mkIf utilsFlag true;
     seven-zip_home-manager.enable = lib.mkIf utilsFlag true;
     slurp_home-manager.enable = lib.mkIf utilsFlag true;
     starship_home-manager.enable = lib.mkIf utilsFlag true;
     stylix_home-manager.enable = lib.mkIf utilsFlag true;
     swww_home-manager.enable = lib.mkIf utilsFlag true;
-    udiskie_home-manager.enable = lib.mkIf utilsFlag true;
     wireplumber_home-manager.enable = lib.mkIf utilsFlag true;
     wl-clipboard_home-manager.enable = lib.mkIf utilsFlag true;
     zoxide_home-manager.enable = lib.mkIf utilsFlag true;

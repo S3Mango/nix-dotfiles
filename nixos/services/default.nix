@@ -6,7 +6,7 @@
     ./networking
     ./printing
     ./tablet
-    ./udisk2
+    ./usb
   ];
 
   options = {
@@ -23,7 +23,7 @@
     networking_nixos.enable = lib.mkIf servicesFlag true;
     printing_nixos.enable = lib.mkIf servicesFlag true;
     tablet_nixos.enable = lib.mkIf servicesFlag true;
-    udisk2_nixos.enable = lib.mkIf servicesFlag true;
+    usb_nixos.enable = lib.mkIf servicesFlag true;
   };
 
 }

@@ -17,7 +17,7 @@
 
       ".config/equibop/settings.json".text = ''
         {
-          "discordBranch": "stable",
+          "discordBranch": "canary",
           "tray": true,
           "minimizeToTray": true,
           "arRPC": true,

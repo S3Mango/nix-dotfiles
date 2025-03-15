@@ -3,7 +3,7 @@
   imports = [
     ./brave
     ./equibop
-    ./firefox
+    ./floorp
     ./krita
     ./libreoffice
     ./lmstudio
@@ -22,7 +22,7 @@
   in {
     brave_home-manager.enable = lib.mkIf GUIFlag true;
     equibop_home-manager.enable = lib.mkIf GUIFlag true;
-    firefox_home-manager.enable = lib.mkIf GUIFlag true;
+    floorp_home-manager.enable = lib.mkIf GUIFlag true;
     krita_home-manager.enable = lib.mkIf GUIFlag true;
     libreoffice_home-manager.enable = lib.mkIf GUIFlag true;
     lmstudio_home-manager.enable = lib.mkIf GUIFlag true;

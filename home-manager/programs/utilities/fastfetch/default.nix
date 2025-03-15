@@ -9,6 +9,13 @@
     home.packages = with pkgs; [
      fastfetch 
     ];
+
+    home.file = {
+      ".config/fastfetch/" = {
+        source = ./config_files;
+        recursive = true;
+      };
+    };
   };
 
 }

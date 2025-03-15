@@ -5,7 +5,7 @@
       lib.mkEnableOption "Enables efibootmgr with NixOS modules";
   };
 
-  config = lib.mkIf config.steam_nixos.enable {
+  config = lib.mkIf config.efibootmgr_nixos.enable {
     environment.systemPackages = with pkgs; [
       efibootmgr
     ];

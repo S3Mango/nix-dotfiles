@@ -4,6 +4,9 @@
     ./efibootmgr
     ./hyprland
     ./steam
+    ./udiskie
+    ./udisks
+    ./usbutils
   ];
 
   options = {
@@ -18,6 +21,9 @@
     efibootmgr_nixos.enable = lib.mkIf programFlag true;
     hyprland_nixos.enable = lib.mkIf programFlag true;
     steam_nixos.enable = lib.mkIf programFlag true;
+    udiskie_nixos.enable = lib.mkIf programFlag true;
+    udisks_nixos.enable = lib.mkIf programFlag true;
+    usbutils_nixos.enable = lib.mkIf programFlag true;
   };
 
 }

@@ -21,11 +21,15 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvf.url = "github:notashelf/nvf";
 
     stylix.url = "github:danth/stylix";
 
-    betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
   };
 
   outputs = { self, nixpkgs, hyprland, home-manager, ... }@inputs:

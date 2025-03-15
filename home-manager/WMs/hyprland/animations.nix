@@ -17,10 +17,10 @@
           ];
 
           animation = [ 
-            "windowsIn, 1, 4, md3_decel, popin 80%"
-            "windowsOut, 1, 4, md3_decel, popin 80%"
+            "windowsIn, 1, 4, md3_decel, popin 60%"
+            "windowsOut, 1, 4, md3_decel"
             "windowsMove, 1, 4, md3_decel, slide"
-            "fade, 1, 3, md3_decel"
+            "fade, 1, 5, md3_decel"
             "workspaces, 0"
           ];
         };

@@ -11,7 +11,7 @@
     wayland.windowManager.hyprland = {
       settings = {
         windowrulev2 = [ 
-          "opacity 0.90 0.90, class:^(firefox)$"
+          "opacity 0.90 0.90, class:^(floorp)$"
           "opacity 0.90 0.90, class:^(Thorium-browser)$"
           "opacity 0.90 0.90, class:^(kitty)$"
           "opacity 0.90 0.90, class:^(nwg-look)$"
