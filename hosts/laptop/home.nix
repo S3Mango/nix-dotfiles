@@ -4,6 +4,7 @@
     ../../home-manager
     inputs.stylix.homeManagerModules.stylix
     inputs.nvf.homeManagerModules.default
+    inputs.betterfox.homeManagerModules.betterfox
   ];
 
   config = {

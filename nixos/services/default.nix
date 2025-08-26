@@ -5,6 +5,7 @@
     ./bluetooth
     ./networking
     ./printing
+    ./searxng
     ./tablet
     ./usb
   ];
@@ -22,6 +23,7 @@
     bluetooth_nixos.enable = lib.mkIf servicesFlag true;
     networking_nixos.enable = lib.mkIf servicesFlag true;
     printing_nixos.enable = lib.mkIf servicesFlag true;
+    searxng_nixos.enable = lib.mkIf servicesFlag true;
     tablet_nixos.enable = lib.mkIf servicesFlag true;
     usb_nixos.enable = lib.mkIf servicesFlag true;
   };

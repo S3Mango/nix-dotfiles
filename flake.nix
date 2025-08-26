@@ -9,7 +9,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/";
 
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -21,10 +21,17 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    hypr-dynamic-cursors = {
+      url = "github:VirtCode/hypr-dynamic-cursors";
+      inputs.hyprland.follows = "hyprland";
+    };
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    
+    betterfox.url = "github:HeitorAugustoLN/betterfox-nix";
 
     nvf.url = "github:notashelf/nvf";
 

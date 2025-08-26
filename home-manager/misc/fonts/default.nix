@@ -10,7 +10,7 @@
 
     home.packages = with pkgs; [
       cascadia-code
-      maple-mono-NF
+      maple-mono.NF
       material-design-icons
       mononoki
       noto-fonts-color-emoji

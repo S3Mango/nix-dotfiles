@@ -1,14 +1,16 @@
 { lib, config, ... }: {
 
   imports = [
-    ./brave
+    # ./brave
     ./equibop
-    ./floorp
+    ./firefox
+    # ./floorp
     ./krita
     ./libreoffice
     ./lmstudio
     ./obs
     ./spotify
+    # ./vesktop
   ];
 
   options = {
@@ -20,14 +22,16 @@
   let
     GUIFlag = config.enableAllGUI_home-manager;
   in {
-    brave_home-manager.enable = lib.mkIf GUIFlag true;
+    # brave_home-manager.enable = lib.mkIf GUIFlag true;
     equibop_home-manager.enable = lib.mkIf GUIFlag true;
-    floorp_home-manager.enable = lib.mkIf GUIFlag true;
+    # floorp_home-manager.enable = lib.mkIf GUIFlag true;
+    firefox_home-manager.enable = lib.mkIf GUIFlag true;
     krita_home-manager.enable = lib.mkIf GUIFlag true;
     libreoffice_home-manager.enable = lib.mkIf GUIFlag true;
     lmstudio_home-manager.enable = lib.mkIf GUIFlag true;
     obs_home-manager.enable = lib.mkIf GUIFlag true;
     spotify_home-manager.enable = lib.mkIf GUIFlag true;
+    # vesktop_home-manager.enable = lib.mkIf GUIFlag true;
   };
 
 }

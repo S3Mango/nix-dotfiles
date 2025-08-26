@@ -22,30 +22,11 @@
         source = ./config_files/user.js;
       };
 
-      ".floorp/${config.home.username}/extensions.json" = {
-        source = ./config_files/extensions.json;
-        force = true;
-      };
-
-      ".floorp/${config.home.username}/extension-settings.json" = {
-        source = ./config_files/extension-settings.json;
-        force = true;
-      };
-
-      ".floorp/${config.home.username}/extension-preferences.json" = {
-        source = ./config_files/extension-preferences.json;
-        force = true;
-      };
-
       ".floorp/${config.home.username}/chrome/" = {
         source = ./config_files/chrome;
         recursive = true;
       };
 
-      ".floorp/${config.home.username}/extensions/" = {
-        source = ./config_files/extensions;
-        recursive = true;
-      };
     };
   };
 

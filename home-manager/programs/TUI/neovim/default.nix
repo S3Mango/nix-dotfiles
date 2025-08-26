@@ -20,10 +20,10 @@
       settings = {
         vim = {
           autocomplete.nvim-cmp.enable = true;
-          statusline.lualine.enable = true;
           telescope.enable = true;
           undoFile.enable = true;
           treesitter.enable = true;
+          lsp.enable = true;
 
           theme = {
             enable = true;
@@ -33,7 +33,6 @@
           };
 
           languages = {
-            enableLSP = true;
 	          enableTreesitter = true;
 	          nix.enable = true;
           };

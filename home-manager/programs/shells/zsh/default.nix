@@ -16,9 +16,8 @@
       enable = true;
       enableCompletion = true;
       autosuggestion.enable = true;
-      dotDir = ".config/zsh";
   
-      initExtra = ''
+      initContent = ''
         function y() {
           local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
           yazi "$@" --cwd-file="$tmp"

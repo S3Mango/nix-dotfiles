@@ -5978,3 +5978,31 @@ element.style {
 
 /*# sourceMappingURL=main.css.map */
 
+.tabBody__133bf {
+    background-color: transparent !important;
+}
+
+
+/*
+ *
+ * NOW PLAYING
+ *
+ */
+
+.container__7d20c {
+    background: transparent !important;
+}
+
+.emptyCard__7e549 {
+    background: var(--main-content-color);
+}
+
+/*
+ *
+ * PROFILE
+ *
+ */
+
+:where(.overlay_c0bea0) {
+    background: var(--main-content-color);
+}

@@ -8,10 +8,11 @@
     ./grim
     ./imagemagick
     ./jq
+    ./opencode
     ./ouch
     ./poppler
-    ./rich-cli
     ./ripgrep
+    ./rustup
     ./slurp
     ./starship
     ./stylix
@@ -37,10 +38,11 @@
     grim_home-manager.enable = lib.mkIf utilsFlag true;
     imagemagick_home-manager.enable = lib.mkIf utilsFlag true;
     jq_home-manager.enable = lib.mkIf utilsFlag true;
+    opencode_home-manager.enable = lib.mkIf utilsFlag true;
     ouch_home-manager.enable = lib.mkIf utilsFlag true;
     poppler_home-manager.enable = lib.mkIf utilsFlag true;
-    rich-cli_home-manager.enable = lib.mkIf utilsFlag true;
     ripgrep_home-manager.enable = lib.mkIf utilsFlag true;
+    rustup_home-manager.enable = lib.mkIf utilsFlag true;
     seven-zip_home-manager.enable = lib.mkIf utilsFlag true;
     slurp_home-manager.enable = lib.mkIf utilsFlag true;
     starship_home-manager.enable = lib.mkIf utilsFlag true;

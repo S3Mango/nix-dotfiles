@@ -10,13 +10,12 @@
   config = lib.mkIf config.hyprland_keybinds.enable {
     wayland.windowManager.hyprland = {
       settings = {
-        # NOTE: my super and alt key are swapped because weird firmware stuff, so most people should swap mod2 and mod3
         "$mod1" = "CONTROL_L";
-        "$mod2" = "SUPER_L";
-        "$mod3" = "ALT_L";
+        "$mod2" = "ALT_L";
+        "$mod3" = "SUPER_L";
 
         "$terminal" = "kitty";
-        "$browser" = "floorp";
+        "$browser" = "firefox";
         "$discord" = "equibop";
         
         bind = [
@@ -57,14 +56,14 @@
           "$mod2 SHIFT, E, exec, steam"
 
           # Rofi
-          "SUPER, $mod2, exec, pkill -x rofi || rofi -show drun -config ~/.config/rofi/config.rasi" # Change SUPER to ALT if mod2 and mod3 are swapped
+          "SUPER, $mod3, exec, pkill -x rofi || rofi -show drun -config ~/.config/rofi/config.rasi" # Change SUPER to ALT if mod2 and mod3 are swapped
 
           # Reset Waybar
           "$mod1 $mod2, W, exec, pkill waybar"
           "$mod1 $mod2, W, exec, waybar"
      
           # Screenshot
-          ''$mod3 SHIFT, S, exec, grim -g "$(slurp -f %X,%Y\ %Wx%H)" - | wl-copy''
+          ''$mod3 SHIFT, S, exec, grim -g "$(slurp -d)" - | wl-copy''
 
           # Clipboard history 
           # "$mod SHIFT, Q, exec pkill -x rofi || ~/Scripts/cliphist.sh c" 

@@ -2,8 +2,9 @@
 
   imports = [
     ../../home-manager
-    inputs.stylix.homeManagerModules.stylix
+    inputs.stylix.homeModules.stylix
     inputs.nvf.homeManagerModules.default
+    inputs.betterfox.homeManagerModules.betterfox
   ];
 
   config = {

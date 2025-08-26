@@ -67,6 +67,9 @@
       targets = {
         hyprland.enable = false;
         yazi.enable = false;
+        starship.enable = false;
+        floorp.enable = false;
+        firefox.enable = false;
       };
     };
   };

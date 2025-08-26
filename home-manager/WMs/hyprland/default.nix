@@ -31,12 +31,17 @@
     wl-clipboard_home-manager.enable = true;
     wlogout_home-manager.enable = true;
 
+    home.packages = with pkgs; [
+      aquamarine
+    ];
+
     wayland.windowManager.hyprland = {
       enable = true;
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 
       plugins = [
         inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.hyprsplit
+        inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors
       ];
 
       settings = {
@@ -47,6 +52,13 @@
       plugin = {
         hyprsplit = {
           num_workspaces = 10;
+        };
+        dynamic-cursors = {
+          enabled = true;
+          mode = "tilt";
+          shake = {
+              enabled = false;
+          };
         };
       };
 
@@ -79,13 +91,17 @@
         "sleep 1.5 && $HOME/Scripts/swwwallpaper.sh &"
         "sleep 3 && waybar"
         "sleep 5 && blueman-applet"
-        "sleep 6 && equibop"
+        "sleep 6 && equibop --start-minimized"
       ];
 
       misc = {
         disable_hyprland_logo = true;
         disable_splash_rendering = true;
         force_default_wallpaper = 0;
+      };
+
+      debug = {
+        disable_logs = false;
       };
 
       "xwayland:force_zero_scaling" = true;

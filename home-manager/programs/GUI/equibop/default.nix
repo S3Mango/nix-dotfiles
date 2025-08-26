@@ -18,6 +18,7 @@
       ".config/equibop/settings.json".text = ''
         {
           "discordBranch": "canary",
+          "disableAutoUpdate": "true",
           "tray": true,
           "minimizeToTray": true,
           "arRPC": true,
@@ -31,10 +32,10 @@
         }
       '';
 
-      ".config/equibop/settings/" = {
-        source = ./config_files/settings;
-        recursive = true;
-      };
+        ".config/equibop/settings/" = {
+          source = ./config_files/settings;
+          recursive = true;
+        };
     };
   };
 

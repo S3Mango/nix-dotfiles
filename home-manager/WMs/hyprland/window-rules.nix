@@ -41,7 +41,6 @@
           "workspace 20, class:(steam_app)(.*)"
 
           "noinitialfocus, class:^(equibop)$"
-          "workspace 1 silent, class:^(equibop)$"
         ];
       };
     };
