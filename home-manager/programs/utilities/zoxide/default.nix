@@ -18,6 +18,4 @@
       enableZshIntegration = lib.mkIf zshFlag true;
     };
   };
-
 }
-

@@ -1,4 +1,4 @@
-{ lib, config, ... }: {
+{ lib, config, pkgs, ... }: {
 
   options = {
     printing_nixos.enable = 
@@ -6,8 +6,20 @@
   };
 
   config = lib.mkIf config.printing_nixos.enable {
-    services.printing.enable = true;
-    hardware.sane.enable = true;
-  };
+    services.printing = {
+      enable = true;
+      browsing = true;
 
+      drivers = with pkgs; [
+        gutenprint
+        canon-cups-ufr2
+      ];
+    };
+
+    services.avahi = {
+      enable = true;
+      nssmdns4 = true;
+      openFirewall = true;
+    };
+  };
 }

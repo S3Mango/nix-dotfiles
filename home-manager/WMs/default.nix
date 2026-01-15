@@ -7,5 +7,4 @@
   config = {
     hyprland_home-manager.enable = lib.mkDefault true;
   };
-
 }

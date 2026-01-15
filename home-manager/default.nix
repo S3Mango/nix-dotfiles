@@ -6,5 +6,4 @@
     ./programs
     ./WMs
   ];
-
 }

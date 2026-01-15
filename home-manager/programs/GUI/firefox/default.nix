@@ -12,23 +12,24 @@
 
     programs.firefox = {
       enable = true;
-      betterfox.enable = true;
 
-      profiles.${config.home.username} = {
+      betterfox = {
+        enable = true;
 
-        settings = {
-          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
-        };
-
-        betterfox = {
-          enable = true;
+        profiles.${config.home.username} = {
           enableAllSections = true;
-          securefox.tracking-protection = {
+
+          settings.securefox.tracking-protection = {
             "browser.download.start_downloads_in_tmp_dir".value = false;
           };
         };
       };
+      
+      profiles.${config.home.username} = {
+        settings = {
+          "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+        };
+      };
     };
   };
-
 }

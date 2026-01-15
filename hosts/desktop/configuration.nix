@@ -1,8 +1,9 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, inputs, ... }: {
 
   imports =
   [ 
     ./hardware-configuration.nix
+    inputs.sops-nix.nixosModules.sops
     ../../nixos
   ];
 
@@ -19,5 +20,4 @@
     # Replace with your own
     system.stateVersion = "24.11";
   };
-
 }

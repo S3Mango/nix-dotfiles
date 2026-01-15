@@ -10,6 +10,4 @@
       libreoffice-still
     ];
   };
-
 }
-

@@ -15,5 +15,4 @@
   in {
     zsh_nixos.enable = lib.mkIf shellFlag true;
   };
-
 }

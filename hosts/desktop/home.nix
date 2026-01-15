@@ -4,7 +4,10 @@
     ../../home-manager
     inputs.stylix.homeModules.stylix
     inputs.nvf.homeManagerModules.default
-    inputs.betterfox.homeManagerModules.betterfox
+    inputs.betterfox.homeModules.betterfox
+    inputs.noctalia.homeModules.default
+    inputs.dms.homeModules.dankMaterialShell.default
+    inputs.matugen.nixosModules.default
   ];
 
   config = {
@@ -21,5 +24,4 @@
 
     programs.home-manager.enable = true;
   };
-
 }

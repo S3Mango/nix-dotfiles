@@ -7,7 +7,7 @@
 
   config = lib.mkIf config.rofi_home-manager.enable {
     home.packages = with pkgs; [
-      rofi-wayland
+      rofi
     ];
 
     home.file = {
@@ -17,6 +17,4 @@
       };
     };
   };
-
 }
-

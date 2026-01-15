@@ -2,30 +2,40 @@
 
 wallpaperDir="$HOME/Pictures/Wallpapers/"
 
-if [[ -n $(swww query) ]]; then
-  # Extract current wallpaper filename, ensuring no duplicates
-  current_wallpaper="$(swww query | grep -m 1 'currently displaying: image:' | awk '{print $8}' | awk -F'/' '{print $NF}')"
-  current_wallpaper=$(echo "$current_wallpaper" | tr -d '\n' | awk '!seen[$0]++')  # Remove duplicates
+pick_random_wallpaper() {
+    readlink -f "$(find "$wallpaperDir" -type l | shuf -n 1)"
+}
 
-  # Select a random wallpaper
-  wallpaperFile="$(find "$wallpaperDir" -type l | shuf -n 1 | awk -F'/' '{print $NF}')"
-  wallpaperFile=$(echo "$wallpaperFile" | tr -d '\n')
+# Get current resolved wallpaper path, if available
+current_wallpaper="$(swww query 2>/dev/null | grep -m1 'currently displaying:' | awk -F'image: ' '{print $2}')"
+current_wallpaper="$(readlink -f "$current_wallpaper")"
 
-  # Ensure new wallpaper is different
-  while [[ "$wallpaperFile" == "$current_wallpaper" ]]; do
-    wallpaperFile="$(find "$wallpaperDir" -type l | shuf -n 1 | awk -F'/' '{print $NF}')"
-    wallpaperFile=$(echo "$wallpaperFile" | tr -d '\n')
-  done
+# Pick new wallpaper
+wallpaper="$(pick_random_wallpaper)"
 
-  # Construct full path
-  wallpaper="${wallpaperDir}${wallpaperFile}"
-else
-  wallpaperFile="$(find "$wallpaperDir" -type l | shuf -n 1 | awk -F'/' '{print $NF}')"
-  wallpaper="${wallpaperDir}${wallpaper}"
-fi
+# Avoid duplicate
+while [[ -n "$current_wallpaper" && "$wallpaper" == "$current_wallpaper" ]]; do
+    wallpaper="$(pick_random_wallpaper)"
+done
 
-# Set the new wallpaper
-swww img "$wallpaper" --filter Nearest --transition-step 110 --transition-type center --transition-fps 60
+# --- Retry logic for setting wallpaper ---
+max_retries=25
+pause=2.5
+delay=0.3
+
+for ((i=1; i<=max_retries; i++)); do
+  if swww query; then
+    if [[ $1 == "start" ]]; then
+      sleep $pause
+    fi
+    echo "Wallpaper set successfully on attempt $i"
+    swww img "$wallpaper" --filter Nearest --transition-step 110 --transition-type center --transition-fps 60
+    break
+  else
+    echo "Attempt $i failed, retrying in $delay seconds..."
+    sleep $delay
+  fi
+done
 
 # Convert the wallpaper for a secondary background file
 mkdir -p ~/Pictures/Wallpapers/current

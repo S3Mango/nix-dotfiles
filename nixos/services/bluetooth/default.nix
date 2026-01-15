@@ -19,14 +19,23 @@
       package = pkgs.bluez;
       settings.Policy.AutoEnable = "true";
       settings.General = {
-          Enable = "Source,Sink,Media,Socket";
-          Name = "Hello";
-          ControllerMode = "dual";
-          FastConnectable = "true";
-          Experimental = "true";
-          KernelExperimental = "true";
+        Enable = "Source,Sink,Media,Socket";
+        Name = "Hello";
+        ControllerMode = "dual";
+        FastConnectable = "true";
+        Experimental = "true";
+        KernelExperimental = "true";
+      };
+    };
+
+    systemd.services.unblock-bluetooth = {
+      wantedBy = [ "multi-user.target" ];
+      after = [ "network.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.util-linux}/bin/rfkill unblock bluetooth";
       };
     };
   };
-
 }
+

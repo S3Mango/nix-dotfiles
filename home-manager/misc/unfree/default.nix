@@ -11,5 +11,4 @@
       allowUnfreePredicate = (_: true);
     };
   };
-
 }

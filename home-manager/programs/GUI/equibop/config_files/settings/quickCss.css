@@ -6006,3 +6006,62 @@ element.style {
 :where(.overlay_c0bea0) {
     background: var(--main-content-color);
 }
+
+
+/*
+ *
+ * RANDOM SHIT IDC
+ *
+ */
+
+.privateChannels_e6b769 {
+    background: rgba(0,0,0,0.25);
+}
+
+.panels__5e434 {
+    background: rgba(0,0,0,0.25);
+}
+
+.itemsContainer_ef3116, .tree_ef3116 {
+    height: 99.5%;
+}
+
+.scroller__99e7c {
+    margin-bottom: calc(var(--custom-app-panels-height, 0) + var(--space-xs));
+}
+
+.wrapper_d852db {
+    background: transparent !important;
+}
+
+.cozy_fc8177.wrapper_fc8177 {
+    display: none;
+}
+
+.popover_d6f39b, .popoverGradientWrapper_d6f39b {
+    display: none;
+}
+
+.container__2637a {
+    background: rgba(0,0,0,0.25);
+}
+
+.guildInviteContainer__083ae {
+    background: var(--main-content-color);
+}
+
+.footerContent__083ae {
+    background: transparent !important;
+}
+
+.sidebarList__5e434 {
+    border: none !important;
+}
+
+.spoilerContent__299eb.hidden__299eb {
+    --__current--spoiler-background-color: var(--main-content-color) !important;
+}
+
+.content__908e2 {
+    background: transparent !important;
+}

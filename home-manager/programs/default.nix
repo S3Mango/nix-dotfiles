@@ -15,5 +15,4 @@
     firefox_home-manager.enable = lib.mkDefault true;
     zsh_home-manager.enable = lib.mkDefault true;
   };
-
 }

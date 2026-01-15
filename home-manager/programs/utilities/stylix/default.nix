@@ -27,7 +27,6 @@
         base0E = "#cba6f7"; # mauve
         base0F = "#f2cdcd"; # flamingo
       };
-      image = ./image/coconut.jpg;
       polarity = "dark";
 
       cursor = {
@@ -73,6 +72,4 @@
       };
     };
   };
-
 }
-

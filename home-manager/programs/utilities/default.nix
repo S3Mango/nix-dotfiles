@@ -6,6 +6,7 @@
     ./ffmpeg
     ./fzf
     ./grim
+    ./hyprpolkitagent
     ./imagemagick
     ./jq
     ./opencode
@@ -13,10 +14,12 @@
     ./poppler
     ./ripgrep
     ./rustup
+    ./socat
     ./slurp
     ./starship
     ./stylix
     ./swww
+    ./umu
     ./wireplumber
     ./wl-clipboard
     ./zoxide
@@ -36,6 +39,7 @@
     ffmpeg_home-manager.enable = lib.mkIf utilsFlag true;
     fzf_home-manager.enable = lib.mkIf utilsFlag true;
     grim_home-manager.enable = lib.mkIf utilsFlag true;
+    hyprpolkitagent_home-manager.enable = lib.mkIf utilsFlag true;
     imagemagick_home-manager.enable = lib.mkIf utilsFlag true;
     jq_home-manager.enable = lib.mkIf utilsFlag true;
     opencode_home-manager.enable = lib.mkIf utilsFlag true;
@@ -44,13 +48,14 @@
     ripgrep_home-manager.enable = lib.mkIf utilsFlag true;
     rustup_home-manager.enable = lib.mkIf utilsFlag true;
     seven-zip_home-manager.enable = lib.mkIf utilsFlag true;
+    socat_home-manager.enable = lib.mkIf utilsFlag true;
     slurp_home-manager.enable = lib.mkIf utilsFlag true;
     starship_home-manager.enable = lib.mkIf utilsFlag true;
     stylix_home-manager.enable = lib.mkIf utilsFlag true;
     swww_home-manager.enable = lib.mkIf utilsFlag true;
+    umu_home-manager.enable = lib.mkIf utilsFlag true;
     wireplumber_home-manager.enable = lib.mkIf utilsFlag true;
     wl-clipboard_home-manager.enable = lib.mkIf utilsFlag true;
     zoxide_home-manager.enable = lib.mkIf utilsFlag true;
   };
-
 }

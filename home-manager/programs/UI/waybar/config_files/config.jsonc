@@ -57,6 +57,7 @@
         "format": "{icon}",
         "format-window-separator": "\n",
         "window-rewrite-default": "",
+        "show-special": false,
     },
 
     "wlr/taskbar": {
@@ -69,8 +70,8 @@
       "on-click": "activate",
       "on-click-middle": "close",
       "ignore-list": [
-        "Alacritty"
-      ],
+        "PreloadFirefox — Mozilla Firefox"
+      ]
     },
 
     "network": {
@@ -79,7 +80,7 @@
         "rotate": 0,
         "format-ethernet": "󰈀 ",
         "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
-        "format-linked": "󰈀 {ifname} (No IP)",
+        "format-linked": "󰈀 ",
         "format-disconnected": "󰖪 ",
         "tooltip-format-disconnected": "Disconnected",
         "format-alt": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",

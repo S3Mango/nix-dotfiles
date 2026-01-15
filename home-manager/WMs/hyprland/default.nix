@@ -4,11 +4,13 @@
     ../../programs
     ./animations.nix
     ./keybinds.nix
-    ./layerrules.nix
     ./monitors.nix
     ./theme.nix
     ./window-rules.nix
     ./workspaces.nix
+    ./v1
+    ./v2
+    ./v3
   ];
 
   options = {
@@ -17,19 +19,21 @@
   };
 
   config = lib.mkIf config.hyprland_home-manager.enable {
+    hyprland-v3_home-manager.enable = lib.mkDefault true;
 
-    dunst_home-manager.enable = true;
-    grim_home-manager.enable = true;
-    nm-applet_home-manager.enable = true;
-    pavucontrol_home-manager.enable = true;
-    polkit_home-manager.enable = true;
-    rofi_home-manager.enable = true;
-    slurp_home-manager.enable = true;
-    swww_home-manager.enable = true;
-    waybar_home-manager.enable = true;
-    wireplumber_home-manager.enable = true;
-    wl-clipboard_home-manager.enable = true;
-    wlogout_home-manager.enable = true;
+    dunst_home-manager.enable = lib.mkDefault true;
+    grim_home-manager.enable = lib.mkDefault true;
+    hyprpolkitagent_home-manager.enable = lib.mkDefault true;
+    nm-applet_home-manager.enable = lib.mkDefault true;
+    pavucontrol_home-manager.enable = lib.mkDefault true;
+    polkit_home-manager.enable = lib.mkDefault true;
+    rofi_home-manager.enable = lib.mkDefault true;
+    slurp_home-manager.enable = lib.mkDefault true;
+    swww_home-manager.enable = lib.mkDefault true;
+    waybar_home-manager.enable = lib.mkDefault true;
+    wireplumber_home-manager.enable = lib.mkDefault true;
+    wl-clipboard_home-manager.enable = lib.mkDefault true;
+    wlogout_home-manager.enable = lib.mkDefault true;
 
     home.packages = with pkgs; [
       aquamarine
@@ -41,72 +45,45 @@
 
       plugins = [
         inputs.hyprsplit.packages.${pkgs.stdenv.hostPlatform.system}.hyprsplit
-        inputs.hypr-dynamic-cursors.packages.${pkgs.stdenv.hostPlatform.system}.hypr-dynamic-cursors
       ];
 
       settings = {
-        input = {
-          kb_options = "caps:super";
-      };
-
-      plugin = {
-        hyprsplit = {
-          num_workspaces = 10;
-        };
-        dynamic-cursors = {
-          enabled = true;
-          mode = "tilt";
-          shake = {
-              enabled = false;
+        plugin = {
+          hyprsplit = {
+            num_workspaces = 10;
           };
         };
-      };
 
-      env = [
-        "XDG_CURRENT_DESKTOP, Hyprland"
-        "XDG_SESSION_TYPE, wayland"
-        "XDG_SESSION_DESKTOP, Hyprland"
-        "QT_QPA_PLATFORM, wayland;xcb"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
-        "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
-        "MOZ_ENABLE_WAYLAND, 1"
-        "GDK_SCALE, 1"
-        "GTK_DEBUG=interactive"
-      ];
+        env = [
+          "XDG_CURRENT_DESKTOP, Hyprland"
+          "XDG_SESSION_TYPE, wayland"
+          "XDG_SESSION_DESKTOP, Hyprland"
+          "QT_QPA_PLATFORM, wayland;xcb"
+          "QT_WAYLAND_DISABLE_WINDOWDECORATION, 1"
+          "QT_AUTO_SCREEN_SCALE_FACTOR, 1"
+          "MOZ_ENABLE_WAYLAND, 1"
+          "GDK_SCALE, 1"
+          "GTK_DEBUG=interactive"
+          "SDL_VIDEODRIVER=wayland"
+        ];
 
-      exec = [
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-        "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-      ];
+        exec = [
+          "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+          "dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        ];
 
-      exec-once = [
-        "swww-daemon --no-cache"
-        "steam -silent"
-        "otd-daemon"
-        "udiskie --smart-tray"
-        "nm-applet --indicator"
-        "dunst"
-        "wl-paste --type text --watch cliphist store"
-        "wl-paste --type image --watch cliphist store"
-        "sleep 1.5 && $HOME/Scripts/swwwallpaper.sh &"
-        "sleep 3 && waybar"
-        "sleep 5 && blueman-applet"
-        "sleep 6 && equibop --start-minimized"
-      ];
+        misc = {
+          disable_hyprland_logo = true;
+          disable_splash_rendering = true;
+          force_default_wallpaper = 0;
+        };
 
-      misc = {
-        disable_hyprland_logo = true;
-        disable_splash_rendering = true;
-        force_default_wallpaper = 0;
-      };
+        debug = {
+          disable_logs = false;
+        };
 
-      debug = {
-        disable_logs = false;
-      };
-
-      "xwayland:force_zero_scaling" = true;
+        "xwayland:force_zero_scaling" = true;
       };
     };
   };
-
 }

@@ -27,5 +27,4 @@
     tablet_nixos.enable = lib.mkIf servicesFlag true;
     usb_nixos.enable = lib.mkIf servicesFlag true;
   };
-
 }

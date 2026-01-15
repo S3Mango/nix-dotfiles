@@ -9,5 +9,4 @@
     scripts_home-manager.enable = lib.mkDefault true;
     wallpapers_home-manager.enable = lib.mkDefault true;
   };
-
 }

@@ -15,5 +15,4 @@
   in {
     cachix_nixos.enable = lib.mkIf buildFlag true;
   };
-
 }

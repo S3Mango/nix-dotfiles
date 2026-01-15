@@ -16,5 +16,4 @@ in
   {
     cemu_home-manager.enable = lib.mkIf emuFlag true;
   };
-
 }

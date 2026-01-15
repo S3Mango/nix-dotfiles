@@ -13,5 +13,4 @@
     programs.hyprland.enable = true;
     autostart_hyprland.enable = lib.mkDefault true;
   };
-
 }

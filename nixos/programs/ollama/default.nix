@@ -5,7 +5,7 @@
       lib.mkEnableOption "Enables Ollama with NixOS modules";
   };
 
-  config = lib.mkIf config.hyprland_nixos.enable {
+  config = lib.mkIf config.ollama_nixos.enable {
     environment.systemPackages = with pkgs; [
       ollama
     ];
@@ -14,5 +14,4 @@
       enable = true;
     };
   };
-
 }

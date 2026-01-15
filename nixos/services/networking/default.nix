@@ -6,8 +6,10 @@
   };
 
   config = lib.mkIf config.networking_nixos.enable {
-    networking.hostName = "nixos";
-    networking.networkmanager.enable = true;
+    networking = {
+      hostName = "nixos";
+      networkmanager.enable = true;
+    };
+    systemd.services.NetworkManager-wait-online.enable = false;
   };
-
 }

@@ -8,5 +8,4 @@
   config = lib.mkIf config.timezone_nixos.enable {
     time.timeZone = "America/New_York";
   };
-
 }

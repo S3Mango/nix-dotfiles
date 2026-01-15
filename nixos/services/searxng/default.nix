@@ -10,6 +10,7 @@
     environment.systemPackages = with pkgs; [
       searxng
       uwsgi
+      nginx
     ];
 
     # SearXNG Service
@@ -19,9 +20,9 @@
       configureUwsgi = true;
 
       uwsgiConfig = {
-        socket = "/run/searxng/searxng.sock";
-        chmod-socket = "666";  # nginx can access it
-        processes = 4;
+        socket = "/run/searx/searxng.sock";
+        chmod-socket = "660";  # nginx can access it
+        processes = 1;
         threads = 2;
       };
 
@@ -48,15 +49,12 @@
         };
 
         search = {
-          method = "POST";
+          method = "GET";
           safe_search = 0;
         };
 
-        engines = {
+        engines = lib.mapAttrsToList (name: value: { inherit name; } // value) {
           "duckduckgo".disabled = false;
-          "bing".disabled = false;
-          "google".disabled = false;
-          "wikipedia".disabled = false;
         };
 
         outgoing = {
@@ -78,7 +76,7 @@
       virtualHosts."search.localhost" = {
         locations."/" = {
           extraConfig = ''
-            include uwsgi_params;
+            include ${pkgs.nginx}/conf/uwsgi_params;
             uwsgi_pass unix:${config.services.searx.uwsgiConfig.socket};
           '';
         };
@@ -86,17 +84,21 @@
     };
 
     # Systemd overrides to allow nginx access to home/runtime directories
-    systemd.services.nginx.serviceConfig.ProtectHome = false;
+    systemd.services.nginx = {
+      serviceConfig = {
+        ProtectHome = false;
+        SuppllementaryGroups = [ "searx" ];
+      };
+
+      wants = [ "uwsgi.service" ];
+    };
+
+    # User management
+    users.groups.searx.members = ["nginx"];
 
     # Make sure local hostname resolves
     networking.hosts = {
       "127.0.0.1" = [ "search.localhost" ];
     };
-
-    # Ensure runtime directory exists for the socket
-    systemd.tmpfiles.rules = [
-      "d /run/searxng 0755 searxng searxng -"
-    ];
   };
 }
-

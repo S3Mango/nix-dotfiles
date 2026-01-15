@@ -19,5 +19,4 @@
     # Replace with your own
     system.stateVersion = "24.11";
   };
-
 }

@@ -1,4 +1,8 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, inputs, pkgs, ... }: {
+
+  imports = with inputs.nix-gaming.nixosModules; [
+    platformOptimizations
+  ];
 
   options = {
     steam_nixos.enable = 
@@ -9,6 +13,12 @@
     programs.steam = {
       enable = true;
       gamescopeSession.enable = true;
+      platformOptimizations.enable = true;
+
+      extraCompatPackages = [
+        pkgs.proton-ge-bin
+        inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.proton-osu-bin
+      ];
     };
 
     programs.gamemode.enable = true;
@@ -17,5 +27,4 @@
       mangohud
     ];
   };
-
 }

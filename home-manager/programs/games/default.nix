@@ -2,6 +2,7 @@
 
   imports = [
     ./emulators
+    ./osu
     ./osulazer
   ];
 
@@ -15,6 +16,7 @@
     gamesFlag = config.enableAllGames_home-manager;
   in {
     enableAllEmulators_home-manager.enable = lib.mkIf gamesFlag true;
+    osu_home-manager.enable = lib.mkIf gamesFlag true;
     osulazer_home-manager.enable = lib.mkIf gamesFlag true;
   };
 

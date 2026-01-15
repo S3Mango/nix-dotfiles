@@ -1,4 +1,10 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, pkgs, ... }: 
+let
+  coach = pkgs.writeShellScriptBin "coach" ''
+      cd ~/life_coach && opencode --agent coach
+  '';
+in
+{
 
   options = {
     opencode_home-manager.enable = 
@@ -6,28 +12,16 @@
   };
 
   config = lib.mkIf config.opencode_home-manager.enable {
-    home.packages = with pkgs; [
-      opencode
-    ];
 
     programs.opencode = {
       enable = true;
 
       settings = {
         "$schema" = "https://opencode.ai/config.json";
-        model = "deepseek/deepseek-chat-v3-0324:free";
-
         provider = {
           openrouter = {
             models = {
-              "google/gemini-2.0-flash-exp:free" = {
-                options = {
-                  provider = {
-                    allow_fallbacks = true;
-                  };
-                };
-              };
-              "qwen/qwen3-coder:free" = {
+              "xiaomi/mimo-v2-flash:free" = {
                 options = {
                   provider = {
                     allow_fallbacks = true;
@@ -39,7 +33,10 @@
         };
       };
     };
+
+    home.packages = [
+      pkgs.opencode
+      coach
+    ];
   };
-
 }
-

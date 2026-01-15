@@ -17,5 +17,4 @@
     hyprland_nixos.enable = lib.mkDefault true;
     zsh_nixos.enable = lib.mkDefault true;
   };
-
 }

@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }: {
+{ lib, config, inputs, pkgs, ... }: {
 
   options = {
     osulazer_home-manager.enable = 
@@ -6,10 +6,8 @@
   };
 
   config = lib.mkIf config.osulazer_home-manager.enable {
-    home.packages = with pkgs; [
+    home.packages = with inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}; [
       osu-lazer-bin
     ];
   };
-
 }
-

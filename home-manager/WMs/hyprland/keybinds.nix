@@ -9,6 +9,7 @@
 
   config = lib.mkIf config.hyprland_keybinds.enable {
     wayland.windowManager.hyprland = {
+
       settings = {
         "$mod1" = "CONTROL_L";
         "$mod2" = "ALT_L";
@@ -18,12 +19,16 @@
         "$browser" = "firefox";
         "$discord" = "equibop";
         
+        input = {
+          kb_options = "caps:super";
+        };
+
         bind = [
           # Kill focused window
           "$mod1 SHIFT, W, exec, hyprctl dispatch killactive"
 
           # Toggle whether the active window is floating
-          "$mod1, mouse:274, togglefloating"
+          "$mod2, mouse:274, togglefloating"
 
           # Terminal related keybinds
           "$mod1 SHIFT, S, exec, $terminal"
@@ -123,12 +128,11 @@
         ];
 
         bindm = [
-          "$mod1, mouse:272, movewindow"
-          "$mod1, mouse:273, resizewindow"
+          "$mod2, mouse:272, movewindow"
+          "$mod2, mouse:273, resizewindow"
         ];
       };
     };
   };
-
 }
 

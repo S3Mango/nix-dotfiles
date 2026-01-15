@@ -10,6 +10,4 @@
       pavucontrol
     ];
   };
-
 }
-

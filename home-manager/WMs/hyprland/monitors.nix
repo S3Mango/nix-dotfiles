@@ -15,12 +15,11 @@
     };
   };
 
-  config = lib.mkIf config.hyprland_layerrules.enable {
+  config = lib.mkIf config.hyprland_monitors.enable {
     wayland.windowManager.hyprland = {
       settings = {
         monitor = config.hyprland_monitors.settings;
       };
     };
   };
-
 }

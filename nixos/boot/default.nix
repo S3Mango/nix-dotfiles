@@ -3,6 +3,7 @@
   imports = [
     ./autologin
     ./bootloader
+    ./kernel
   ];
 
   options = {
@@ -16,6 +17,6 @@
   in {
     autologin_nixos.enable = lib.mkIf bootFlag true;
     bootloader_nixos.enable = lib.mkIf bootFlag true;
+    kernel_nixos.enable = lib.mkIf bootFlag true;
   };
-
 }

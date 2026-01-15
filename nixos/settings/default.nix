@@ -25,5 +25,4 @@
     unfree_nixos.enable = lib.mkIf settingsFlag true;
     users_nixos.enable = lib.mkIf settingsFlag true;
   };
-
 }

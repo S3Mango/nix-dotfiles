@@ -9,9 +9,8 @@
     users.users.s3mango = {
       isNormalUser = true;
       description = "s3mango";
-      extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" "lp"];
+      extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" "lp" "dialout"];
       shell = pkgs.zsh;
     };
   };
-
 }
